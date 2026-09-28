@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Quiz System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">🧠</span>
+        <span>Online Quiz</span>
+    </div>
+
+    <nav class="nav-menu">
+
+        <button class="nav-btn active" onclick="showSection('home', this)">
+            🏠 Home
+        </button>
+
+        <button class="nav-btn" onclick="showSection('topics', this)">
+            📚 Topics
+        </button>
+
+        <button class="nav-btn" onclick="showSection('quiz', this)">
+            📝 Quiz
+        </button>
+
+        <button class="nav-btn" onclick="showSection('result', this)">
+            🏆 Result
+        </button>
+
+        <button class="nav-btn" onclick="showSection('admin', this)">
+            🔐 Admin
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="section active-section">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                🎓 Smart Learning Platform
+            </span>
+
+            <h1>
+                Online <span>Quiz System</span>
+            </h1>
+
+            <p>
+                Test your knowledge with interactive quizzes for
+                Class 10th, Class 11th, Class 12th and BCA Semester 1–6.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn"
+                        onclick="showSection('topics', document.querySelectorAll('.nav-btn')[1])">
+                    🚀 Start Quiz
+                </button>
+
+                <button class="secondary-btn"
+                        onclick="showSection('admin', document.querySelectorAll('.nav-btn')[4])">
+                    🔐 Admin Panel
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="brain-icon">
+                🧠
+            </div>
+
+            <h2>Learn • Practice • Improve</h2>
+
+            <div class="stats">
+
+                <div>
+                    <strong>24+</strong>
+                    <span>Subjects</span>
+                </div>
+
+                <div>
+                    <strong>100+</strong>
+                    <span>Questions</span>
+                </div>
+
+                <div>
+                    <strong>3</strong>
+                    <span>School Classes</span>
+                </div>
+
+                <div>
+                    <strong>6</strong>
+                    <span>BCA Semesters</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature-card">
+            <div class="feature-icon">🔎</div>
+            <h3>Search Topics</h3>
+            <p>Find your required subject quickly.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Response</h3>
+            <p>Know immediately whether your answer is correct.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Instant Result</h3>
+            <p>Get your score and percentage after the quiz.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Admin Dashboard</h3>
+            <p>Admin can view quiz performance.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= TOPICS ================= -->
+
+<section id="topics" class="section">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            📚 QUIZ CATEGORIES
+        </span>
+
+        <h2>Choose Your <span>Subject</span></h2>
+
+        <p>
+            Select your class or BCA semester and choose a subject.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <span>🔎</span>
+
+        <input
+            type="text"
+            id="topicSearch"
+            placeholder="Search subject..."
+            oninput="searchTopics()"
+        >
+
+    </div>
+
+
+    <!-- SCHOOL -->
+
+    <div class="category-block">
+
+        <h3 class="category-title">
+            🏫 School
+        </h3>
+
+
+        <div class="class-selector">
+
+            <button onclick="showCategory('10th')" class="category-btn active">
+                Class 10th
+            </button>
+
+            <button onclick="showCategory('11th')" class="category-btn">
+                Class 11th
+            </button>
+
+            <button onclick="showCategory('12th')" class="category-btn">
+                Class 12th
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- BCA -->
+
+    <div class="category-block">
+
+        <h3 class="category-title">
+            💻 BCA
+        </h3>
+
+
+        <div class="class-selector">
+
+            <button onclick="showCategory('BCA Sem 1')" class="category-btn">
+                Semester 1
+            </button>
+
+            <button onclick="showCategory('BCA Sem 2')" class="category-btn">
+                Semester 2
+            </button>
+
+            <button onclick="showCategory('BCA Sem 3')" class="category-btn">
+                Semester 3
+            </button>
+
+            <button onclick="showCategory('BCA Sem 4')" class="category-btn">
+                Semester 4
+            </button>
+
+            <button onclick="showCategory('BCA Sem 5')" class="category-btn">
+                Semester 5
+            </button>
+
+            <button onclick="showCategory('BCA Sem 6')" class="category-btn">
+                Semester 6
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUBJECTS -->
+
+    <div class="subjects-heading">
+
+        <h3 id="selectedCategoryTitle">
+            Class 10th Subjects
+        </h3>
+
+    </div>
+
+
+    <div id="topicGrid" class="topic-grid"></div>
+
+
+    <div id="noTopics" class="no-topics">
+        ❌ No subject found.
+    </div>
+
+</section>
+
+
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quiz" class="section">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            📝 ONLINE QUIZ
+        </span>
+
+        <h2>Test Your <span>Knowledge</span></h2>
+
+        <p>
+            Select your details and start the quiz.
+        </p>
+
+    </div>
+
+
+    <!-- QUIZ SETUP -->
+
+    <div id="quizSetup" class="quiz-setup">
+
+        <div class="form-card">
+
+            <div class="form-icon">
+                🎓
+            </div>
+
+            <h2>Start Quiz</h2>
+
+            <p class="form-description">
+                Enter your name and select a subject.
+            </p>
+
+
+            <label>Student Name</label>
+
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter your full name"
+            >
+
+
+            <label>Class / Semester</label>
+
+            <select id="quizLevel" onchange="updateQuizSubjects()">
+
+                <option value="">
+                    Select Class / Semester
+                </option>
+
+                <option value="10th">
+                    Class 10th
+                </option>
+
+                <option value="11th">
+                    Class 11th
+                </option>
+
+                <option value="12th">
+                    Class 12th
+                </option>
+
+                <option value="BCA Sem 1">
+                    BCA Semester 1
+                </option>
+
+                <option value="BCA Sem 2">
+                    BCA Semester 2
+                </option>
+
+                <option value="BCA Sem 3">
+                    BCA Semester 3
+                </option>
+
+                <option value="BCA Sem 4">
+                    BCA Semester 4
+                </option>
+
+                <option value="BCA Sem 5">
+                    BCA Semester 5
+                </option>
+
+                <option value="BCA Sem 6">
+                    BCA Semester 6
+                </option>
+
+            </select>
+
+
+            <label>Subject</label>
+
+            <select id="quizTopic">
+
+                <option value="">
+                    First select class / semester
+                </option>
+
+            </select>
+
+
+            <button class="primary-btn full-btn" onclick="startQuiz()">
+                🚀 Start Quiz
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVE QUIZ -->
+
+    <div id="activeQuiz" class="active-quiz hidden">
+
+        <div class="quiz-header">
+
+            <div>
+
+                <span id="currentLevel">
+                    Class 10th
+                </span>
+
+                <h2 id="currentTopic">
+                    Mathematics
+                </h2>
+
+            </div>
+
+            <div class="question-counter">
+                Question <span id="questionCounter">1</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-area">
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION -->
+
+        <div class="question-card">
+
+            <div class="question-number" id="questionNumber">
+                Q1
+            </div>
+
+            <h2 id="questionText">
+                Question will appear here.
+            </h2>
+
+
+            <div id="optionsContainer" class="options-container">
+            </div>
+
+
+            <div id="instantFeedback" class="instant-feedback">
+            </div>
+
+
+            <button
+                id="nextButton"
+                class="primary-btn next-btn"
+                onclick="nextQuestion()"
+                disabled
+            >
+                Next Question →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RESULT ================= -->
+
+<section id="result" class="section">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            🏆 QUIZ RESULT
+        </span>
+
+        <h2>Your <span>Performance</span></h2>
+
+    </div>
+
+
+    <div class="result-card">
+
+        <div class="result-trophy">
+            🏆
+        </div>
+
+        <h2>Quiz Completed!</h2>
+
+        <p class="result-message">
+            Great job! Here is your result.
+        </p>
+
+
+        <div class="result-details">
+
+            <div class="result-item">
+                <span>Student</span>
+                <strong id="resultStudent">-</strong>
+            </div>
+
+            <div class="result-item">
+                <span>Class / Semester</span>
+                <strong id="resultLevel">-</strong>
+            </div>
+
+            <div class="result-item">
+                <span>Subject</span>
+                <strong id="resultTopic">-</strong>
+            </div>
+
+        </div>
+
+
+        <div class="score-box">
+
+            <div class="score-circle">
+
+                <strong id="finalScore">
+                    0/0
+                </strong>
+
+                <span>Score</span>
+
+            </div>
+
+
+            <div class="percentage">
+
+                <strong id="resultPercentage">
+                    0%
+                </strong>
+
+                <span>Percentage</span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="showSection('topics', document.querySelectorAll('.nav-btn')[1])"
+        >
+            🔄 Take Another Quiz
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ADMIN ================= -->
+
+<section id="admin" class="section">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            🔐 ADMIN PANEL
+        </span>
+
+        <h2>Quiz <span>Dashboard</span></h2>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <div id="adminLoginBox" class="admin-login">
+
+        <div class="admin-icon">
+            🔐
+        </div>
+
+        <h2>Admin Login</h2>
+
+        <p>
+            Login to view student quiz results.
+        </p>
+
+
+        <input
+            type="text"
+            id="adminUsername"
+            placeholder="Username"
+        >
+
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Password"
+        >
+
+
+        <button class="primary-btn full-btn" onclick="adminLogin()">
+            🔓 Login
+        </button>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div id="adminDashboard" class="admin-dashboard hidden">
+
+        <div class="dashboard-header">
+
+            <div>
+                <h2>📊 Admin Dashboard</h2>
+                <p>Student quiz performance</p>
+            </div>
+
+            <button class="logout-btn" onclick="adminLogout()">
+                Logout
+            </button>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="admin-stats">
+
+            <div class="admin-stat">
+                <span>👨‍🎓</span>
+                <div>
+                    <strong id="totalStudents">0</strong>
+                    <small>Total Attempts</small>
+                </div>
+            </div>
+
+
+            <div class="admin-stat">
+                <span>📚</span>
+                <div>
+                    <strong id="totalTopics">0</strong>
+                    <small>Subjects Attempted</small>
+                </div>
+            </div>
+
+
+            <div class="admin-stat">
+                <span>📈</span>
+                <div>
+                    <strong id="averageScore">0%</strong>
+                    <small>Average Score</small>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RESULTS TABLE -->
+
+        <div class="table-wrapper">
+
+            <div class="table-title">
+                <h3>Student Quiz Records</h3>
+
+                <button class="clear-btn" onclick="clearResults()">
+                    🗑 Clear All
+                </button>
+            </div>
+
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Student</th>
+                            <th>Class / Semester</th>
+                            <th>Subject</th>
+                            <th>Score</th>
+                            <th>Percentage</th>
+                            <th>Date</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="resultsTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🧠 Online Quiz System
+    </div>
+
+    <p>
+        © 2026 Online Quiz System | Educational Project
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
